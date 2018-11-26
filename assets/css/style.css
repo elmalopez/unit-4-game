@@ -1,21 +1,23 @@
+.grad {
+    background-image: radial-gradient(circle, #D30E00, #6C0500);
+  }
+
 .crystals{
     display: flex;
     justify-content:space-around;
     align-items:center;
 }
 .crystal{
-    border: 1px solid green;
-    height: 200px;
+    border-width:7px;  
+    border-style:inset;
+    height: 300px;
     width: 200px;
-    border-radius: 4px;
-    box-shadow: 5px 5px 5px rgba(0,0,0,0,0.5);
-    transition: box-shadow 1s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.crystal:hover{
-    box-shadow: 15px 15px 15px rgba(0,0,0,0,0.5);
-    cursor: pointer;
-    transition: box-shadow 1s;
+p{
+color: white
 }
+
 img{
     width:50px;
 }

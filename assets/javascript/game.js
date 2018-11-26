@@ -28,42 +28,41 @@ var resetAndStart = function () {
         });
         crystal.css({
             "background-image": "url('" + images[i] + "')",
-            "background-size":"cover"
+            "background-size": "cover"
         });
 
         $(".crystals").append(crystal);
 
     }
-        $("#previous").html("Total score: " + previous);
+    $("#previous").html("Total score: " + previous);
+
+}
+resetAndStart();
+
+
+
+$(document).on('click', ".crystal", function () {
+    var num = parseInt($(this).attr('dataRandom'));
+    previous += num;
+    $("#previous").html("Total score: " + previous);
+    console.log(previous);
+
+    if (previous > randomResult) {
+        lost++;
+        $("#lost").html("You lost: " + lost);
+        previous = 0;
+        resetAndStart();
+    }
+
+    else if (previous === randomResult) {
+        win++;
+        $("#win").html("You win: ", win);
+        previous = 0;
+        resetAndStart();
 
     }
-    resetAndStart();
 
-
-
-    $(document).on('click', ".crystal", function () {
-        var num = parseInt($(this).attr('dataRandom'));
-        previous += num;
-        $("#previous").html("Total score: " + previous);
-        console.log(previous);
-
-        if (previous > randomResult) {
-            lost++;
-            $("#lost").html("You lost: " + lost);
-            previous = 0;
-
-            resetAndStart();
-        }
-
-        else if (previous === randomResult) {
-            win++;
-            $("#win").html("You win: ", win);
-            previous = 0;
-            resetAndStart();
-
-        }
-
-    });
+});
 
 // a game with 4 crystals and random result
 // every crystal needs a random number thats between 1-12
